@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://chaoscoffee.github.io/blog/</id>
+    <id>https://chaoscoffee.github.io/blog</id>
     <title>Gridea</title>
-    <updated>2019-07-19T08:18:59.049Z</updated>
+    <updated>2019-07-19T08:29:28.299Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://chaoscoffee.github.io/blog/"/>
-    <link rel="self" href="https://chaoscoffee.github.io/blog//atom.xml"/>
+    <link rel="alternate" href="https://chaoscoffee.github.io/blog"/>
+    <link rel="self" href="https://chaoscoffee.github.io/blog/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://chaoscoffee.github.io/blog//images/avatar.png</logo>
-    <icon>https://chaoscoffee.github.io/blog//favicon.ico</icon>
+    <logo>https://chaoscoffee.github.io/blog/images/avatar.png</logo>
+    <icon>https://chaoscoffee.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[Spring Boot中整合Sharding-JDBC单库分表]]></title>
-        <id>https://chaoscoffee.github.io/blog//post/spring-boot-zhong-zheng-he-sharding-jdbc-dan-ku-fen-biao</id>
-        <link href="https://chaoscoffee.github.io/blog//post/spring-boot-zhong-zheng-he-sharding-jdbc-dan-ku-fen-biao">
+        <id>https://chaoscoffee.github.io/blog/post/spring-boot-zhong-zheng-he-sharding-jdbc-dan-ku-fen-biao</id>
+        <link href="https://chaoscoffee.github.io/blog/post/spring-boot-zhong-zheng-he-sharding-jdbc-dan-ku-fen-biao">
         </link>
         <updated>2019-07-09T06:40:34.000Z</updated>
         <summary type="html"><![CDATA[<p>数据分片<br>
@@ -41,8 +41,8 @@ sharding.jdbc.config.sharding.tables.user.table-strategy.inline.algorithm-expres
     </entry>
     <entry>
         <title type="html"><![CDATA[关于]]></title>
-        <id>https://chaoscoffee.github.io/blog//post/about</id>
-        <link href="https://chaoscoffee.github.io/blog//post/about">
+        <id>https://chaoscoffee.github.io/blog/post/about</id>
+        <link href="https://chaoscoffee.github.io/blog/post/about">
         </link>
         <updated>2019-01-25T11:09:48.000Z</updated>
         <content type="html"><![CDATA[<p>这是关于的页面，可以在这里向世界介绍你！</p>
