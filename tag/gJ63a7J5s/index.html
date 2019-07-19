@@ -1,9 +1,9 @@
 <html>
   <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | Gridea</title>
+<title>springboot | Gridea</title>
 <link rel="shortcut icon" href="https://github.com/ChaosCoffee/blog/favicon.ico?v=1563522858639">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -70,55 +70,44 @@
   </div>
 </div>
 
-
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              关于
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-01-25 ·
-              </time>
-              
-            </div>
-            
-            <div class="post-content">
-              <p>这是关于的页面，可以在这里向世界介绍你！</p>
-
-            </div>
-          </article>
+        <div class="current-tag-container">
+            <h2 class="title">
+                标签：#springboot
+            </h2> 
         </div>
-
+        <div class="post-container">
+  
+    <article class="post">
+      <a href="https://github.com/ChaosCoffee/blog/post/spring-boot-zhong-zheng-he-sharding-jdbc-dan-ku-fen-biao">
+        <h2 class="post-title">Spring Boot中整合Sharding-JDBC单库分表</h2>
+      </a>
+      <div class="post-info">
+        <time class="post-time">
+          · 2019-07-09 ·
+        </time>
         
-
+          <a href="https://github.com/ChaosCoffee/blog/tag/rCssWred9" class="post-tag">
+            # sharding-jdbc
+          </a>
         
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: 'Client ID 66146bc9c7cb0bd31378 Client Secret f105878836ba25560d74476e4bb2ed01b9dee46c',
-    clientSecret: 'f105878836ba25560d74476e4bb2ed01b9dee46c',
-    repo: 'blog',
-    owner: 'ChaosCoffee',
-    admin: ['ChaosCoffee'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
+          <a href="https://github.com/ChaosCoffee/blog/tag/gJ63a7J5s" class="post-tag">
+            # springboot
+          </a>
         
+      </div>
+      
+      <div class="post-abstract">
+        <p>用于分片的数据库字段，是将数据库(表)水平拆分的关键字段。例：将订单表中的订单主键的尾数取模分片，则订单主键为分片字段。 SQL中如果无分片字段，将执行全路由，性能较差。 除了对单分片字段的支持，ShardingSphere也支持根据多个字段进行分片。</p>
+
+      </di>
+    </article>
+  
+</div>
+
+        <div class="pagination-container">
+  
+  
+</div>
 
         <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 

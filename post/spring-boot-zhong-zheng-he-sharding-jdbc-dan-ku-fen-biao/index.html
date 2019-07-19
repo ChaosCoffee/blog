@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | Gridea</title>
+<title>Spring Boot中整合Sharding-JDBC单库分表 | Gridea</title>
 <link rel="shortcut icon" href="https://github.com/ChaosCoffee/blog/favicon.ico?v=1563522858639">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -74,22 +74,56 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              Spring Boot中整合Sharding-JDBC单库分表
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-01-25 ·
+                · 2019-07-09 ·
               </time>
+              
+                <a href="https://github.com/ChaosCoffee/blog/tag/rCssWred9" class="post-tag">
+                  # sharding-jdbc
+                </a>
+              
+                <a href="https://github.com/ChaosCoffee/blog/tag/gJ63a7J5s" class="post-tag">
+                  # springboot
+                </a>
               
             </div>
             
             <div class="post-content">
-              <p>这是关于的页面，可以在这里向世界介绍你！</p>
+              <p>用于分片的数据库字段，是将数据库(表)水平拆分的关键字段。例：将订单表中的订单主键的尾数取模分片，则订单主键为分片字段。 SQL中如果无分片字段，将执行全路由，性能较差。 除了对单分片字段的支持，ShardingSphere也支持根据多个字段进行分片。</p>
+<!-- more -->
+<p>数据分片</p>
+<ul>
+<li>Spring Boot方式配置</li>
+</ul>
+<pre><code>sharding.jdbc.datasource.names=ds_master
+# 数据源
+sharding.jdbc.datasource.ds_master.type=com.alibaba.druid.pool.DruidDataSource
+sharding.jdbc.datasource.ds_master.driver-class-name=com.mysql.jdbc.Driver
+sharding.jdbc.datasource.ds_master.url=jdbc:mysql://localhost:3306/ds_0?characterEncoding=utf-8
+sharding.jdbc.datasource.ds_master.username=root
+sharding.jdbc.datasource.ds_master.password=123456
+# 分表配置
+sharding.jdbc.config.sharding.tables.user.actual-data-nodes=ds_master.user_${0..3}
+sharding.jdbc.config.sharding.tables.user.table-strategy.inline.sharding-column=id
+sharding.jdbc.config.sharding.tables.user.table-strategy.inline.algorithm-expression=user_${id.longValue() % 4}
+</code></pre>
 
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://github.com/ChaosCoffee/blog/post/about">
+              <h3 class="post-title">
+                关于
+              </h3>
+            </a>
+          </div>
         
 
         
