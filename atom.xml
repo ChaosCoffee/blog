@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chaoscoffee.github.io/blog</id>
     <title>Gridea</title>
-    <updated>2019-07-19T08:30:24.595Z</updated>
+    <updated>2019-07-19T08:31:02.209Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chaoscoffee.github.io/blog"/>
     <link rel="self" href="https://chaoscoffee.github.io/blog/atom.xml"/>
@@ -45,7 +45,10 @@ sharding.jdbc.config.sharding.tables.user.table-strategy.inline.algorithm-expres
         <link href="https://chaoscoffee.github.io/blog/post/about">
         </link>
         <updated>2019-01-25T11:09:48.000Z</updated>
-        <content type="html"><![CDATA[<p>这是关于的页面，可以在这里向世界介绍你！</p>
+        <summary type="html"><![CDATA[<p>温故而知新。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>温故而知新。</p>
+<!-- more -->
 ]]></content>
     </entry>
 </feed>
