@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chaoscoffee.github.io/blog</id>
     <title>Gridea</title>
-    <updated>2019-07-19T08:31:02.209Z</updated>
+    <updated>2019-07-24T06:08:12.195Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chaoscoffee.github.io/blog"/>
     <link rel="self" href="https://chaoscoffee.github.io/blog/atom.xml"/>
@@ -10,6 +10,75 @@
     <logo>https://chaoscoffee.github.io/blog/images/avatar.png</logo>
     <icon>https://chaoscoffee.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Survivor space为何大小与设置不符？]]></title>
+        <id>https://chaoscoffee.github.io/blog/post/survivor-space</id>
+        <link href="https://chaoscoffee.github.io/blog/post/survivor-space">
+        </link>
+        <updated>2019-07-24T05:59:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>启动参数：-Xms2048m -Xmx2048m -XX:NewSize=256m -XX:PermSize=256m -server -XX:+DisableExplicitGC -verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCDetails</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>启动参数：-Xms2048m -Xmx2048m -XX:NewSize=256m -XX:PermSize=256m -server -XX:+DisableExplicitGC -verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCDetails</p>
+<!-- more -->
+<p>一台机器 jstat -heap的结果如下：<br>
+shenjia.yang  17:08<br>
+Heap Configuration:<br>
+MinHeapFreeRatio = 40<br>
+MaxHeapFreeRatio = 70<br>
+MaxHeapSize      = 2147483648 (2048.0MB)<br>
+NewSize          = 268435456 (256.0MB)<br>
+MaxNewSize       = 17592186044415 MB<br>
+OldSize          = 5439488 (5.1875MB)<br>
+NewRatio         = 2<br>
+SurvivorRatio    = 8<br>
+PermSize         = 268435456 (256.0MB)<br>
+MaxPermSize      = 268435456 (256.0MB)</p>
+<p>Heap Usage:<br>
+PS Young Generation<br>
+Eden Space:<br>
+capacity = 714735616 (681.625MB)<br>
+used     = 113395384 (108.14226531982422MB)<br>
+free     = 601340232 (573.4827346801758MB)<br>
+15.865360765791193% used<br>
+From Space:<br>
+capacity = 524288 (0.5MB)<br>
+used     = 131072 (0.125MB)<br>
+free     = 393216 (0.375MB)<br>
+25.0% used<br>
+To Space:<br>
+capacity = 458752 (0.4375MB)<br>
+used     = 0 (0.0MB)<br>
+free     = 458752 (0.4375MB)<br>
+0.0% used<br>
+PS Old Generation<br>
+capacity = 1431699456 (1365.375MB)<br>
+used     = 330222976 (314.9251708984375MB)<br>
+free     = 1101476480 (1050.4498291015625MB)<br>
+23.065104524283623% used<br>
+PS Perm Generation<br>
+capacity = 268435456 (256.0MB)<br>
+used     = 60564936 (57.75922393798828MB)<br>
+free     = 207870520 (198.24077606201172MB)<br>
+22.562196850776672% used</p>
+<p>启动参数是：<br>
+-Xms2048m -Xmx2048m -XX:NewSize=256m -XX:PermSize=256m -server -XX:+DisableExplicitGC -verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCDetails</p>
+<p>SurvivorRatio是 8 ，这个时候Eden 也 600多M，为啥From/To 几乎是 0 呢？<br>
+Jdk version<br>
+java version &quot;1.6.0_20&quot;<br>
+Java(TM) SE Runtime Environment (build 1.6.0_20-b02)<br>
+Java HotSpot(TM) 64-Bit Server VM (build 16.3-b01, mixed mode)</p>
+<hr>
+<p><strong>回答:</strong><br>
+因为ParallelScavenge GC会动态调整各个区的大小。这个行为叫做adaptive size policy。要禁用的话请用 -XX:-UseAdaptiveSizePolicy 。可以通过 -XX:+PrintAdaptiveSizePolicy 来观察它对各个区的大小的调整。</p>
+<p>如果survivor space都几乎变成0了，多半意味着tenuring threshold已经降到1了，也就是说所有eden里活的对象在经历第一次minor GC的时候就会被晋升到old generation。那样的话survivor space就完全没用了，所以会被设置到几乎0。（无法真的完全设置到0大小是实现上的细节…有分区之间有对齐需求）</p>
+<p>为啥tenuring threshold会下降，最终降到1？有两种可能：</p>
+<ol>
+<li>minor GC耗时比期望的时间长。为了降低minor GC的耗时，降低tenuring threshold来让更多对象晋升，减少留在young generation里的对象</li>
+<li>survivor space有溢出</li>
+</ol>
+<p>说到底还是创建对象太多太快了。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Spring Boot中整合Sharding-JDBC单库分表]]></title>
         <id>https://chaoscoffee.github.io/blog/post/spring-boot-zhong-zheng-he-sharding-jdbc-dan-ku-fen-biao</id>
