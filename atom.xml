@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chaoscoffee.github.io/blog</id>
     <title>Gridea</title>
-    <updated>2019-07-24T06:08:12.195Z</updated>
+    <updated>2019-07-24T07:08:30.209Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chaoscoffee.github.io/blog"/>
     <link rel="self" href="https://chaoscoffee.github.io/blog/atom.xml"/>
@@ -10,6 +10,28 @@
     <logo>https://chaoscoffee.github.io/blog/images/avatar.png</logo>
     <icon>https://chaoscoffee.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[JVM内存模型]]></title>
+        <id>https://chaoscoffee.github.io/blog/post/jvm-nei-cun-mo-xing</id>
+        <link href="https://chaoscoffee.github.io/blog/post/jvm-nei-cun-mo-xing">
+        </link>
+        <updated>2019-07-24T06:14:28.000Z</updated>
+        <summary type="html"><![CDATA[<p>JVM内存模型</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>JVM内存模型</p>
+<!-- more -->
+<h1 id="jvm内存模型">JVM内存模型</h1>
+<p><img src="https://chaoscoffee.github.io/blog/post-images/1563949181720.png" alt=""></p>
+<p><strong>堆内存的组成如下</strong><br>
+<img src="https://chaoscoffee.github.io/blog/post-images/1563949199617.png" alt=""></p>
+<h1 id="非堆内存">非堆内存</h1>
+<p>非堆内存由 Permanent Generation 和 Code Cache 两部分组成：</p>
+<ul>
+<li>Permanent Generation（持久代）: 保存虚拟机自己的静态(refective)数据，主要存放加载的Class类级别静态对象如class本身，method，field等等。permanent generation空间不足会引发full GC；</li>
+<li>Code Cache: 用于编译和保存本地代码（native code）的内存，JVM内部处理或优化。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Survivor space为何大小与设置不符？]]></title>
         <id>https://chaoscoffee.github.io/blog/post/survivor-space</id>
